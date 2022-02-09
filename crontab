@@ -1,1 +1,1 @@
-55 9 * * * poetry run python --version   @@demo@@
+35 11 * * * poetry run python jobs/check_weather.py  @@check_weather@@

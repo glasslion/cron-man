@@ -7,22 +7,22 @@ commands:
         command: poetry install
         name: install dependencies
 jobs:
-  demo_job:
+  check_weather_job:
     docker:
     - image: cimg/python:3.10.2
     steps:
     - prepare_python_env
     - run:
-        command: poetry run python --version
+        command: poetry run python jobs/check_weather.py
         name: Run
 version: 2.1
 workflows:
-  demo_cron:
+  check_weather_cron:
     jobs:
-    - demo_job
+    - check_weather_job
     triggers:
     - schedule:
-        cron: 55 9 * * *
+        cron: 35 11 * * *
         filters:
           branches:
             only:

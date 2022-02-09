@@ -52,7 +52,9 @@ def load_crontab():
         for line in f:
             if line.strip().startswith("#"):
                 continue
-        tab.append(parse_cron(line))
+            if line.strip() == "":
+                continue
+            tab.append(parse_cron(line))
     return tab
 
 
@@ -62,7 +64,8 @@ def parse_cron(line):
     remaining = " ".join(parts[5:])
 
     m = re.match(r"(?P<command>.*)\s+@@(?P<name>\w+)@@", remaining)
-    assert m is not None
+    if m is None:
+        raise ValueError(f"Line {line}v 不满足格式要求")
 
     return {
         "cron": cron,
