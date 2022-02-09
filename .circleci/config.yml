@@ -1,32 +1,29 @@
-version: 2.1
-
 commands:
   prepare_python_env:
-    description: "Common prepare steps for all jobs"
+    description: Common prepare steps for all jobs
     steps:
-      - checkout
-      - run:
-          name: install dependencies
-          command: poetry install
+    - checkout
+    - run:
+        command: poetry install
+        name: install dependencies
 jobs:
-  demo:
+  demo_job:
     docker:
-      - image: cimg/python:3.10.2
+    - image: cimg/python:3.10.2
     steps:
-      - prepare_python_env
-      - run:
-          name: "Run"
-          command: "poetry run python --version"
-
+    - prepare_python_env
+    - run:
+        command: poetry run python --version
+        name: Run
+version: 2.1
 workflows:
-  version: 2
   demo_cron:
-    triggers:
-      - schedule:
-          cron: "10 8 * * *"
-          filters:
-            branches:
-              only:
-                - main
     jobs:
-      - demo
+    - demo_job
+    triggers:
+    - schedule:
+        cron: 55 9 * * *
+        filters:
+          branches:
+            only:
+            - main
