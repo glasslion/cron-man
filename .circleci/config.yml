@@ -15,7 +15,7 @@ jobs:
     steps:
       - prepare_python_env
       - run:
-          name: "Say hello"
+          name: "Run"
           command: "poetry run python --version"
 
 workflows:
@@ -23,7 +23,7 @@ workflows:
   demo_cron:
     triggers:
       - schedule:
-          cron: "20 7 * * *"
+          cron: "10 8 * * *"
           filters:
             branches:
               only:
