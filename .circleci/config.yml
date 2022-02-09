@@ -22,7 +22,7 @@ workflows:
   demo_cron:
     triggers:
       - schedule:
-          cron: "55 22 * * *"
+          cron: "07 07 * * *"
           filters:
             branches:
               only:
