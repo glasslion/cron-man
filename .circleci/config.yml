@@ -19,10 +19,11 @@ jobs:
           command: "poetry run python --version"
 
 workflows:
+  version: 2
   demo_cron:
     triggers:
       - schedule:
-          cron: "12 07 * * *"
+          cron: "15 7 * * *"
           filters:
             branches:
               only:
