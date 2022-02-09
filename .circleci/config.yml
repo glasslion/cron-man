@@ -22,7 +22,7 @@ workflows:
     - check_weather_job
     triggers:
     - schedule:
-        cron: 35 11 * * *
+        cron: 30,45,59 12 * * *
         filters:
           branches:
             only:

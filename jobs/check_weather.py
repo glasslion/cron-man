@@ -25,3 +25,6 @@ if __name__ == "__main__":
     weather = get_weather()
     if "雨" in weather["now"]["text"]:
         send_wecomchan("今天有雨，记得早点打车")
+        print("已发送通知")
+    else:
+        print("无需发送通知")

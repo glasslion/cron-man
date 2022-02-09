@@ -1,1 +1,1 @@
-35 11 * * * poetry run python jobs/check_weather.py  @@check_weather@@
+30,45,59 12 * * * poetry run python jobs/check_weather.py  @@check_weather@@
