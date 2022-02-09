@@ -22,10 +22,10 @@ workflows:
   demo_cron:
     triggers:
       - schedule:
-          cron: "07 07 * * *"
+          cron: "12 07 * * *"
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - demo
