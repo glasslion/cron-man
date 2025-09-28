@@ -12,11 +12,9 @@ from utils.wecomchan import send_wecomchan
 def get_weather():
     # 使用的是 和风天气 API
     # Location ID 可查阅 https://github.com/qwd/LocationList
-    location = 101021300  # 上海长宁
+    location = 101021700  # 上海杨浦
     api_key = os.environ["QWEATHER_API_KEY"]
-    url = (
-        f"https://devapi.qweather.com/v7/weather/now?key={api_key}&location={location}"
-    )
+    url = f"https://nr7fbrqtr5.re.qweatherapi.com/v7/weather/now?key={api_key}&location={location}"
     r = requests.get(url)
     return r.json()
 
